@@ -36,6 +36,7 @@ function builderMenu() {
             }
             // push to array here 
         ]).then(answers => {
+            // i know I have this constructor here but its coming up undefined- how to i define it? in my lib manager.js? 
             const manager = new Manager(answers.name, answers.id, answers.officeID, answers.email);
             teamMembers.push(manager);
         });
@@ -144,7 +145,7 @@ function builderMenu() {
         });
 
     }
-
+createManager();
 }
 
 builderMenu();
