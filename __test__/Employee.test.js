@@ -22,7 +22,8 @@ test('Should return the employee email', () => {
     let employee = new Employee('babs', 1, 'email');
     expect(employee.email).toEqual('email');
 });
-//checking function
+
+//checking functions
 //getname test
 test('getName() should return the employee name', () => {
     let employee = new Employee('babs');
