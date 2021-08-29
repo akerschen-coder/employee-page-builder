@@ -8,10 +8,11 @@ const Engineer = require('./lib/Engineer');
 // to push to html 
 const DIST_DIR = path.resolve(__dirname, 'dist');
 const outputPath = path.join(DIST_DIR, 'index.html');
-const render = require('./src/page-template.js');
+const render = require('./src/pageTemplate.js');
 
 //array to be pushed into 
 const teamMembers = [];
+const idArr = [];
 
 function builderMenu() {
     // manager- name, id, office id, email
@@ -47,6 +48,8 @@ function builderMenu() {
             // i know I have this constructor here but its coming up undefined- how to i define it? in my lib manager.js? 
             const manager = new Manager(answers.name, answers.id, answers.officeID, answers.email);
             teamMembers.push(manager);
+            idArr.push(answers.officeId);
+            idArr.push(answers.id);
             createTeam();
         });
     }
@@ -112,6 +115,7 @@ function builderMenu() {
             const engineer = new Engineer(answers.name, answers.id, answers.github, answers.email);
             //pushes to array 
             teamMembers.push(engineer);
+            idArr.push(answers.id);
             // prompts to make another team member or not 
             createTeam();
         });
@@ -144,6 +148,7 @@ function builderMenu() {
             const intern = new Intern(answers.name, answers.id, answers.school, answers.email);
             //pushes to array 
             teamMembers.push(intern);
+            idArr.push(answers.id);
             // prompt choices again 
             createTeam();
         });
@@ -157,7 +162,7 @@ function builderMenu() {
             console.log("Generating Team Profile.... ");
             fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
         }
-        
+
 createManager();
 }
 
