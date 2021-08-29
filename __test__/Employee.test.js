@@ -2,7 +2,7 @@
 const { test } = require('@jest/globals');
 const Employee= require('../lib/Employee')
 
-
+//arguments test
 test("Should return an object", ()=>{
     const emp = new Employee();
     expect(typeof(emp)).toEqual("object");
@@ -41,7 +41,7 @@ test('getEmail() should return the employee email', () => {
 });
 //get role 
 test('getName() should return the employee name', () => {
-    let role= "Employee";
+    let role = "Employee";
     let employee = new Employee('babs',1, 'email');
     expect(employee.getRole()).toEqual(role);
 });

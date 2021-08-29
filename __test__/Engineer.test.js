@@ -1,4 +1,3 @@
-//engineer’s name, ID, email, and GitHub username,
 const Engineer = require('../lib/Engineer');
 //test github 
 test('Should return the engineer github', () => {

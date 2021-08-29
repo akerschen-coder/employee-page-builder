@@ -1,6 +1,14 @@
 const inquirer = require('inquirer');
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs'); 
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
+const Engineer = require('./lib/Engineer');
+
+// to push to html 
+const DIST_DIR = path.resolve(__dirname, 'dist');
+const outputPath = path.join(DIST_DIR, 'index.html');
+const render = require('./src/page-template.js');
 
 //array to be pushed into 
 const teamMembers = [];
@@ -39,8 +47,8 @@ function builderMenu() {
             // i know I have this constructor here but its coming up undefined- how to i define it? in my lib manager.js? 
             const manager = new Manager(answers.name, answers.id, answers.officeID, answers.email);
             teamMembers.push(manager);
+            createTeam();
         });
-
     }
     // prompt to create team giving choices of engineer and intern or no.
     function createTeam() {
@@ -107,11 +115,7 @@ function builderMenu() {
             // prompts to make another team member or not 
             createTeam();
         });
-
     }
-    //prompt to add intern or not
-
-
     // intern- name, id, school, email 
     function createIntern() {
         inquirer.prompt([
@@ -144,7 +148,16 @@ function builderMenu() {
             createTeam();
         });
 
-    }
+    } 
+    function buildTeam() {
+        // Create the output directory if the output path doesn't exist
+            if (!fs.existsSync(DIST_DIR)) {
+                fs.mkdirSync(DIST_DIR);
+            }
+            console.log("Generating Team Profile.... ");
+            fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+        }
+        
 createManager();
 }
 

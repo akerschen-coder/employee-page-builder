@@ -1,4 +1,3 @@
-//intern’s name, ID, email, and school, 
 const Intern = require('../lib/Intern');
 //test school argument 
 test('Should return the intern school', () => {
