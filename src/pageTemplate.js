@@ -12,9 +12,9 @@ module.exports = team => {
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid bg-success">
             <div class="row">
-                <div class="col-12 jumbotron text-white mb-3">
+                <div class="col-12 jumbotron text-white mb-3 bg-success">
                     <h1 class="text-center">Page Builder </h1>
                 </div>
             </div>
@@ -42,10 +42,10 @@ const createProfile = team => {
                 <h2 class="card-title">${manager.getName()}</h2>
                 <h4 class="card-title">Title: ${manager.getRole()}</h4>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body bg-info">
                 <ul class="list-group text-dark">
                     <li class="list-group-item">ID: ${manager.getId()}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                    <li class="list-group-item">Email: <a href="mailto: ${manager.getEmail()}">${manager.getEmail()}</a></li>
                     <li class="list-group-item">Office number: <a href="tel:${manager.getOfficeNumber()}">${manager.getOfficeNumber()}</a></li>
                 </ul>
             </div>
@@ -61,7 +61,7 @@ const createProfile = team => {
                 <h2 class="card-title">${engineer.getName()}</h2>
                 <h4 class="card-title">Title: ${engineer.getRole()}</h4>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body bg-info">
                 <ul class="list-group text-dark">
                     <li class="list-group-item">ID: ${engineer.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
@@ -80,7 +80,7 @@ const createProfile = team => {
                 <h2 class="card-title">${intern.getName()}</h2>
                 <h4 class="card-title">Title: ${intern.getRole()}</h4>
             </div>
-            <div class="card-body bg-light">
+            <div class="card-body bg-info">
                 <ul class="list-group text-dark">
                     <li class="list-group-item">ID: ${intern.getId()}</li>
                     <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
